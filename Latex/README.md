@@ -6,14 +6,9 @@
 \usepackage[T5]{fontenc}
 \usepackage[utf8]{inputenc}
 
-\title{Blank}
-
+\title{}
 
 \begin{document}
-
-\maketitle
-
-\section{Introduction}
 
 \end{document}
 
