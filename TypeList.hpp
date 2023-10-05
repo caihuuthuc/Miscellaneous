@@ -20,7 +20,15 @@ namespace TL {
     static constexpr unsigned value = 0;
   };
 
+  template <typename TList, unsigned int index>
+  struct TypeAt {
+    using type = typename TypeAt<typename TList::Tail, index - 1>::type;
+  };
 
+  template <typename TList>
+  struct TypeAt <TList, 0> {
+    using typename type = TList::Head;
+  };
 
-
+  // Page 56
 };
