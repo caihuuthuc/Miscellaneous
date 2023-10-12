@@ -1,3 +1,4 @@
+```bash
 DOWNLOAD_BINUTILS=binutils-2.39
 DOWNLOAD_GCC=gcc-12.2.0
 DOWNLOAD_GRUB=grub-2.02
@@ -21,3 +22,4 @@ cd $DOWNLOAD_BINUTILS && \
 mkdir build && cd build \
 ../configure --target=$TARGET --prefix="$PREFIX" --with-sysroot --disable-multilib --disable-nls --disable-werror && \
 make && make install
+```
