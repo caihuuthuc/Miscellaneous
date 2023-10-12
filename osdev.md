@@ -8,18 +8,19 @@ TARGET=i686-elf
 PREFIX=/usr/local
 
 
+wget -q http://ftp.gnu.org/gnu/binutils/$DOWNLOAD_BINUTILS.tar.gz && \
+tar -xzf $DOWNLOAD_BINUTILS.tar.gz && \
+cd $DOWNLOAD_BINUTILS && \
+cd .. && mkdir build_binutils && cd build_binutils \
+../$DOWNLOAD_BINUTILS/configure --target=$TARGET --prefix="$PREFIX" --with-sysroot --disable-multilib --disable-nls --disable-werror && \
+make && make install
+
+
 wget ftp://ftp.gnu.org/gnu/gcc/$DOWNLOAD_GCC/$DOWNLOAD_GCC.tar.gz && \
 tar -xzf $DOWNLOAD_GCC.tar.gz && \
 cd $DOWNLOAD_GCC && \
 ./contrib/download_prerequisites && \
-mkdir build && cd build && \
-../configure --target=$TARGET --prefix="$PREFIX" --disable-multilib --disable-nls --enable-languages=c,c++ --without-headers && \
+cd .. && mkdir build_gcc && cd build_gcc && \
+../$DOWNLOAD_GCC/configure --target=$TARGET --prefix="$PREFIX" --disable-multilib --disable-nls --enable-languages=c,c++ --without-headers && \
 make all-gcc && make all-target-libgcc && make install-gcc && make install-target-libgcc
-
-wget -q http://ftp.gnu.org/gnu/binutils/$DOWNLOAD_BINUTILS.tar.gz && \
-tar -xzf $DOWNLOAD_BINUTILS.tar.gz && \
-cd $DOWNLOAD_BINUTILS && \
-mkdir build && cd build \
-../configure --target=$TARGET --prefix="$PREFIX" --with-sysroot --disable-multilib --disable-nls --disable-werror && \
-make && make install
 ```
