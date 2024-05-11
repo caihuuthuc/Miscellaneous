@@ -5,8 +5,9 @@
 
 ```C++
 #include "gtest/gtest.h"
-
-
+```
+```bash
+g++ -lgtest gtest_main.cpp -o gtest_main.o
 ```
 
 ## Google Benchmark
